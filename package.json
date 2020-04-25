@@ -24,7 +24,6 @@
     "dependencies": {
         "babel-template": "^6.26.0",
         "core-js": "^3.6.5",
-        "jest": "^25.4.0",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-modules": "^1.0.8"
