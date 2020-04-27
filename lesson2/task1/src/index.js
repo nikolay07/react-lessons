@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 
 const rootElement = document.querySelector('#root');
 
-const element = (
-  <h1>Search Form</h1>
-  <div>
-      <input type="text"/>
+const createElement = (
+  <>
+    <h1>Search Form</h1>
+    <div>
+      <input type="text" />
       <button>Search</button>
-  </div>
-  );
-ReactDOM.render(element, rootElement)
+    </div>
+  </>
+);
+
+ReactDOM.render(createElement, rootElement);
