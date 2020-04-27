@@ -1,2 +1,15 @@
 node_modules
 dist
+README.md
+yarn.lock
+favicon.ico
+logo192.png
+logo512.png
+manifest.json
+robots.txt
+App.css
+App.js
+App.test.js
+logo.svg
+serviceWorker.js
+setupTests.js
