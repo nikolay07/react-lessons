@@ -4,8 +4,10 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
+        "start:react": "react-scripts start",
+        "build:react": "react-scripts build",
+        "build:": "webpack -p",
+        "start": "webpack-dev-server --open",
         "test": "react-scripts test --env=jsdom",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",
