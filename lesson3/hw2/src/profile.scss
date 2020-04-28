@@ -1,0 +1,18 @@
+.profile {
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      &__name {
+            background-color: blueviolet;
+            margin: auto;
+            padding: 8px;
+            border: 3px solid #eee;
+              }
+    &__birth {
+            background-color: coral;
+            margin: auto;
+            padding: 8px;
+            border: 3px solid #eee;
+          }
+ };
+
