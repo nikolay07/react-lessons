@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 import './clock.scss';
 
-const getTime = (timezone) => {
-  const currentTimeZone = new Date().getTimezoneOffset() / 60;
-  const locationTimeZone = new Date(new Date().setHours(new Date().getHours() + currentTimeZone + timezone));
-  return locationTimeZone;
-}
+const getTimeWithOffset = offset => {
+  const currentTime = new Date();
+  const utcOffset = currentTime.getTimezoneOffset() / 60;
+  return new Date(currentTime.setHours(currentTime.getHours() + offset + utcOffset))
+  }
 
 class Clock extends Component {
   constructor(props) {
     super(props);
     this.state = {
       location: props.location,
-      time: getTime(props.zone).toLocaleTimeString('en-US'),
+      time: getTimeWithOffset(props.zone).toLocaleTimeString('en-US'),
     }
     setInterval(() => {
       this.setState({
-        time: getTime(props.zone).toLocaleTimeString('en-US'),
+        time: getTimeWithOffset(props.zone).toLocaleTimeString('en-US'),
       })
     }, props.interval)
   }
