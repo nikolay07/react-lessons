@@ -1,6 +1,24 @@
-import React from "react";
+import React, { Component } from "react";
 
-const Toggler = ()=> {
-  return (1)
+class Toggle extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isToggleOn: false
+    };
+  }
+  handleClick = () => {
+    this.setState({
+      isToggleOn: !this.state.isToggleOn
+    });
+  };
+  render() {
+    return (
+      <div onClick={this.handleClick} className="toggler">
+        {this.state.isToggleOn ? "On" : "Off"}
+      </div>
+    );
+  }
 }
- export default Toggler;
+
+export default Toggle;
