@@ -1,16 +1,17 @@
-import React from "react";
+import React, { Component } from 'react';
 
-class GoodButton extends React.Component {
-  handleClick(e){
-    console.log(e.target.textContent);
-    alert('Good job!');
+class GoodButton extends Component {
+  handleClick(e) {
+    alert(e.target.textContent);
   }
-  render(){
+  render () {
     return (
       <button className="fancy-button"
       onClick={this.handleClick}
-      >Click me!</button>
-      )
+    >
+      Click me!
+    </button>
+    )
   }
 }
 
