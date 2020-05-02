@@ -1,4 +1,5 @@
 node_modules
+task.txt
 .vscode
 settings.json
 dist
