@@ -7,5 +7,4 @@ const Login = ({ onLogin }) => {
     </button>
   );
 };
-
 export default Login;
