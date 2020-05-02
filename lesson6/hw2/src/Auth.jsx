@@ -4,39 +4,52 @@ import Login from "./Login.jsx";
 import Logout from "./Logout.jsx";
 
 class Auth extends Component {
-  state = {
-    isLogin: false,
-    isLoading: false,
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLoggedIn: false,
+      isVisibleSpinner: false,
+    };
+  }
+
+  handleLogIn = () => {
+    this.setState({
+      isLoggedIn: true,
+    });
+    this.showSpinner();
   };
 
-  onLogin = () => {
+  handleLogOut = () => {
     this.setState({
-      isLogin: true,
-      isLoading: true,
+      isLoggedIn: false,
+    });
+  };
+
+  showSpinner = () => {
+    this.setState({
+      isVisibleSpinner: true,
     });
 
     setTimeout(() => {
       this.setState({
-        isLoading: false,
+        isVisibleSpinner: false,
       });
     }, 2000);
   };
 
-  onLogout = () => {
-    this.setState({
-      isLogin: false,
-    });
-  };
-
   render() {
-    if (!this.state.isLogin) {
-      return <Login onLogin={this.onLogin} />;
-    }
-    if (this.state.isLoading) {
-      return <Spinner size={"30px"} />;
-    } else {
-      return <Logout onLogout={this.onLogout} />;
-    }
+    const button = !this.state.isLoggedIn ? (
+      <Login onLogin={this.handleLogIn} />
+    ) : (
+      <Logout onLogout={this.handleLogOut} />
+    );
+
+    return (
+      <div className="main">
+        {this.state.isVisibleSpinner ? <Spinner size={50} /> : button}
+      </div>
+    );
   }
 }
 export default Auth;
