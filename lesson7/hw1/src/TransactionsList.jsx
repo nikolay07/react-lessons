@@ -1,26 +1,23 @@
 import React, { Component } from "react";
-import transactions from "./Transaction.jsx";
+import Transaction from "./Transaction";
 
-const TransactionsList = (transactions) => {
-  return (
-    <>
-      <ul className="transactions">
-        <li className="transaction">
-          <span className="transaction__date">10 Jan</span>
-          <span className="transaction__time">19:08</span>
-          <span className="transaction__assets">USD → EUR</span>
-          <span className="transaction__rate">0.8</span>
-          <span className="transaction__amount">1,200</span>
-        </li>
-        <li className="transaction">
-          <span className="transaction__date">10 Jan</span>
-          <span className="transaction__time">19:01</span>
-          <span className="transaction__assets">EUR → USD</span>
-          <span className="transaction__rate">1.1</span>
-          <span className="transaction__amount">100</span>
-        </li>
-      </ul>
-    </>
-  );
-};
+class TransactionsList extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const transactionsList = this.props.transactions.map((transaction) => {
+      return <Transaction key={transaction.id} {...transaction} />;
+    });
+    return <ul className="transactions">{transactionsList}</ul>;
+  }
+}
+
 export default TransactionsList;
+
+// const TransactionsList = ({ transactions }) => {
+//   const transactionsList = transactions.map((transaction) => {
+//     return <Transaction key={transaction.id} {...transaction} />;
+//   });
+//   return <ul className="transactions">{transactionsList}</ul>;
+// };
