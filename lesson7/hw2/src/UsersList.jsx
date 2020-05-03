@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Users from "./User";
+import User from "./User";
 import Pagination from "./Pagination";
 
 class UsersList extends Component {
