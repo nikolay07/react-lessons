@@ -1,7 +1,13 @@
 import React from "react";
 
-const Login = (numbers) => {
-  return <span className="">numbers</span>;
+const NumbersList = ({ numbers }) => {
+  return (
+    <ul>
+      {numbers.map((num) => (
+        <li key={num}>{num}</li>
+      ))}
+    </ul>
+  );
 };
 
-export default Login;
+export default NumbersList;
