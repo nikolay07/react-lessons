@@ -1,13 +1,27 @@
 import React from "react";
-import UsersList from "UsersList.jsx";
 
-const Pagination = () => {
+const Pagination = ({
+  goPrev,
+  goNext,
+  currentPage,
+  totalItems,
+  itemsPerPage,
+}) => {
+  const isPrevPageAvaible = currentPage === 0;
+  const isNextPageAvaible =
+    currentPage === Math.ceil(totalItems / itemsPerPage) - 1;
+
   return (
     <div className="pagination">
-      <button className="btn">←</button>
-      <span className="pagination__page">1</span>
-      <button className="btn">→</button>
+      <button className="btn" onClick={goPrev} disabled={isPrevPageAvaible}>
+        {isPrevPageAvaible ? "" : "←"}
+      </button>
+      <span className="pagination__page">{currentPage + 1}</span>
+      <button className="btn" onClick={goNext} disabled={isNextPageAvaible}>
+        {isNextPageAvaible ? "" : "→"}
+      </button>
     </div>
   );
 };
+
 export default Pagination;
