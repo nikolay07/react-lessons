@@ -18,22 +18,12 @@ body {
   padding: 0;
 }
 
-.user {
-  margin: 8px;
-  width: 150px;
+.number {
   display: flex;
-
-  &__age {
-    font-weight: 700;
-    opacity: 0.5;
-    margin-left: auto;
-  }
-}
-
-.pagination {
-  display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  font-weight: 700;
+  font-size: 50px;
 }
 
 .btn {
@@ -47,4 +37,5 @@ body {
   padding: 8px;
   cursor: pointer;
   background-color: green;
+  margin: 10px;
 }

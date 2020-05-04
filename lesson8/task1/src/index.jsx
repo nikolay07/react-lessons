@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Life from "./Life";
+import Demo from "./Demo";
 import "./index.scss";
 
 const root = document.querySelector("#root");
@@ -25,4 +25,4 @@ const text = [
     "return:": "React element to build DOM",
   },
 ];
-ReactDOM.render(<Life text={text} />, root);
+ReactDOM.render(<Demo />, root);
