@@ -1,14 +1,29 @@
-import React from 'react'
-import Clock from './Clock';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import Clock from "./Clock";
 
-const App = () => {
-  return (
-    <>
-      <Clock offset={0} location={'London'}/>
-      <Clock offset={2} location={'Kiyv'}/>
-      <Clock offset={-5} location={'New York'}/>
-    </>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: true,
+    };
+  }
+
+  toggle = () => {
+    this.setState({
+      visible: !this.state.visible,
+    });
+  };
+  render() {
+    return (
+      <div>
+        <button className="btn" onClick={this.toggle}>
+          Toggle
+        </button>
+        <div>{this.state.visible && <Clock />}</div>
+      </div>
+    );
+  }
 }
 export default App;
- 
