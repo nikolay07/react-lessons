@@ -17,19 +17,13 @@ class App extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="clock-tgl">
         <button className="clock__btn" onClick={this.toggle}>
           Toggle
         </button>
-        <div>
-          {this.state.visible && <Clock offset={0} location={"London"} />}
-        </div>
-        <div>
-          {this.state.visible && <Clock offset={3} location={"Kiyv"} />}
-        </div>
-        <div>
-          {this.state.visible && <Clock offset={-5} location={"New York"} />}
-        </div>
+        {this.state.visible && <Clock offset={0} location={"London"} />}
+        {this.state.visible && <Clock offset={3} location={"Kiyv"} />}
+        {this.state.visible && <Clock offset={-5} location={"New York"} />}
       </div>
     );
   }
