@@ -5,4 +5,4 @@ import "./index.scss";
 
 const root = document.querySelector("#root");
 
-ReactDOM.render(<User />, root);
+ReactDOM.render(<User userId="nikolay07" />, root);
