@@ -1,11 +1,31 @@
 import React, { Component } from "react";
 
 class Search extends Component {
+  state = {
+    value: " ",
+  };
+  handleClick = (e) => {
+    //e.persist();
+    this.setState({
+      value: e.target.value,
+    });
+  };
+  search = (e) => {
+    e.preventDefault();
+    console.log(this.state.value);
+  };
   render() {
     return (
-      <form className="search">
-        <input type="text" className="search__input" />
-        <button className="search__button">Search</button>
+      <form className="search" onSubmit={this.search}>
+        <input
+          type="text"
+          onChange={this.handleClick}
+          value={this.state.value}
+          className="search__input"
+        />
+        <button className="search__button" type="submit">
+          Search
+        </button>
       </form>
     );
   }
