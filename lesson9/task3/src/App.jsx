@@ -1,9 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import UserForm from "./UserForm";
 
-class App extends Component {
+class App extends React.Component {
+  createUser = (user) => {
+    console.log(user);
+  };
+
   render() {
-    return <UserForm />;
+    return <UserForm onSubmit={this.createUser} />;
   }
 }
 
