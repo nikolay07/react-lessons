@@ -1,42 +1,38 @@
-import React, { Component } from "react";
-import User from "./User.jsx";
+import React from "react";
+import User from "./User";
+import Filter from "./Filter";
 
-class UsersList extends Component {
-  constructor(props) {
-    super(props);
-  }
+class UsersList extends React.Component {
   state = {
-    sorting: null,
+    filterText: "",
+    count: this.props.users.length,
   };
-  toggleSorting = () => {
-    const newSorting = this.state.sorting === "asc" ? "desc" : "asc";
+
+  onChange = (e) => {
     this.setState({
-      sorting: newSorting,
+      filterText: e.target.value,
     });
   };
 
   render() {
-    let usersList;
-    if (this.state.sorting) {
-      usersList = this.props.users
-        .slice()
-        .sort((a, b) =>
-          this.state.sorting === "asc" ? a.age - b.age : b.age - a.age
-        );
-    } else {
-      usersList = this.props.users;
-    }
-
+    const { filterText } = this.state;
+    const usersList = this.props.users
+      .filter((user) =>
+        user.name.toLowerCase().includes(filterText.toLowerCase())
+      )
+      .map((user) => {
+        return <User key={user.id} {...user} />;
+      });
     return (
       <div>
-        <button className="btn" onClick={this.toggleSorting}>
-          {this.state.sorting || "-"}
-        </button>
-        <ul className="users">
-          {usersList.map((user) => (
-            <User key={user.id} {...user} />
-          ))}
-        </ul>
+        <div className="filter">
+          <Filter
+            filterText={filterText}
+            count={usersList.length}
+            onChange={this.onChange}
+          />
+        </div>
+        <ul className="users">{usersList}</ul>
       </div>
     );
   }
