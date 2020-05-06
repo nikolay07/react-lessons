@@ -1,8 +1,6 @@
 import React from "react";
 
-const Spinner = (props) => {
-  console.log(props);
-  const { size } = props;
+const Spinner = ({ size }) => {
   const style = {
     width: size,
     height: size,
