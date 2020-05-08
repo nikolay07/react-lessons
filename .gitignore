@@ -6,7 +6,6 @@ settings.json
 dist
 .eslintrc.jsx
 package-lock.json
-README.md
 yarn.lock
 favicon.ico
 logo192.png
