@@ -1,13 +1,12 @@
 import React from "react";
+import UserForm from "./UserForm";
 
-class Profile extends React.Component {
-  render() {
-    return (
-      <div className="column">
-        <UserForm />
-      </div>
-    );
-  }
-}
+const Profile = ({ userData, handleChange }) => {
+  return (
+    <div className="column">
+      <UserForm userData={userData} handleChange={handleChange} />
+    </div>
+  );
+};
 
 export default Profile;
