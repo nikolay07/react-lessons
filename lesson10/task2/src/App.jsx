@@ -1,9 +1,17 @@
 import React from "react";
-import UserForm from "./UserForm";
+import ShoppingCart from "./ShoppingCart";
+import Profile from "./Profile";
 
 class App extends React.Component {
   render() {
-    return <User />;
+    return (
+      <div className="page">
+        <main className="content">
+          <ShoppingCart />
+          <Profile />
+        </main>
+      </div>
+    );
   }
 }
 
