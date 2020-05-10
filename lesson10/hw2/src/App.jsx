@@ -40,10 +40,6 @@ const PRODUCTS = [
   },
 ];
 
-class App extends React.Component {
-  render() {
-    return <FilterableProductTable products={PRODUCTS} />;
-  }
-}
+const App = () => <FilterableProductTable products={PRODUCTS} />;
 
 export default App;
