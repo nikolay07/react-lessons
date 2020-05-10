@@ -1,8 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
 
-class TemperatureInput extends React.Component {
+class TemperatureInput extends Component {
   render() {
-    return <div className=""></div>;
+    const { scale, onTemperatureChange, temperature } = this.props;
+    return (
+      <fieldset>
+        <legend>Enter temperature in {scale}:</legend>
+        <input
+          name={scale}
+          onChange={onTemperatureChange}
+          value={temperature}
+        />
+      </fieldset>
+    );
   }
 }
 
