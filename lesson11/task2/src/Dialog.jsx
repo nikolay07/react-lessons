@@ -1,9 +1,26 @@
 import React from "react";
-
-class Dialog extends React.Component {
-  render() {
-    return <div className=""></div>;
-  }
-}
+import PropTypes from "prop-types";
+const Dialog = ({ isOpen, children, title, onClose }) => {
+  if (!isOpen) return null;
+  return (
+    <div className="dialog">
+      <div className="dialog__title">{title}</div>
+      <button className="dialog__close-btn" onClick={onClose}>
+        +
+      </button>
+      <div className="dialog__content">{children}</div>
+    </div>
+  );
+};
+Dialog.propTypes = {
+  isOpen: PropTypes.bool,
+  children: PropTypes.element.isRequired,
+  title: PropTypes.string,
+  onClose: PropTypes.func.isRequired,
+};
+Dialog.defaultProps = {
+  isOpen: false,
+  title: "",
+};
 
 export default Dialog;
