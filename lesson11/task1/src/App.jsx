@@ -20,12 +20,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
+        <OddNumbers title="Odd numbers" number={this.state.number} />
         <EvenNumbers
           title="Event numbers"
           number={this.state.number}
         />
         <Numbers title="All numbers" number={this.state.number} />
-        <OddNumbers title="Odd numbers" number={this.state.number} />
         <Numbers title="Just 17" number={17} />
       </div>
     );
