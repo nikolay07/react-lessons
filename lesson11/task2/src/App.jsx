@@ -3,7 +3,7 @@ import Dialog from "./Dialog";
 
 class App extends React.Component {
   render() {
-    return <Numbers />;
+    return <Dialog />;
   }
 }
 
