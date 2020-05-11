@@ -1,17 +1,17 @@
 import React from "react";
 
-class Numbers extends React.Component {
+class Numbers extends React.PureComponent {
+  // shouldComponentUpdate(nextProps) {
+  //   this.props.number === nextProps.number &&
+  //   this.props.title === nextProps.title
+  //     ? false
+  //     : true;
+  // }
   render() {
     return (
-      <div className="app">
-        <div className="number">
-          <span className="number__title">All numbers</span>
-          <span className="number__value">83</span>
-        </div>
-        <div className="number">
-          <span className="number__title">Just 17</span>
-          <span className="number__value">17</span>
-        </div>
+      <div className="number">
+        <span className="number__title">{this.props.title}</span>
+        <span className="number__value">{this.props.number}</span>
       </div>
     );
   }
