@@ -36,7 +36,5 @@ const users = [
     name: "Klara",
   },
 ];
-// const newUsers = users.map((user, index) => {
-//   return { ...user, id1: index };
-// });
+
 ReactDOM.render(<UsersList users={users} />, root);
