@@ -5,7 +5,6 @@ import Pagination from "./Pagination";
 class UsersList extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       currentPage: 0,
       itemsPerPage: 3,
@@ -13,7 +12,6 @@ class UsersList extends Component {
   }
 
   goPrev = () => {
-    console.log(this);
     this.setState({
       currentPage: this.state.currentPage - 1,
     });
