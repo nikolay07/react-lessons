@@ -39,5 +39,4 @@ const users = [
 // const newUsers = users.map((user, index) => {
 //   return { ...user, id1: index };
 // });
-console.log(newUsers);
 ReactDOM.render(<UsersList users={users} />, root);
