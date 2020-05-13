@@ -19,7 +19,6 @@ class TasksList extends Component {
 
   fetchTask = () => {
     fetchTasksList().then((taskList) => {
-      console.log(taskList);
       return this.setState({
         tasks: taskList,
       });
