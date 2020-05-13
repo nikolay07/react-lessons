@@ -1,59 +1,76 @@
-import React from "react";
+import React, { Component } from "react";
 import Task from "./Task";
 import CreateTaskInput from "./CreateTaskInput";
+import {
+  createTask,
+  fetchTasksList,
+  updateTask,
+  deleteTask,
+} from "./TasksGateway";
 
-class TaskList extends React.Component {
+class TasksList extends Component {
   state = {
-    tasks: [
-      { text: "Buy milk", done: false, id: 1 },
-      { text: "Pick up Tom from airport", done: false, id: 2 },
-      { text: "Visit party", done: false, id: 3 },
-      { text: "Visit doctor", done: true, id: 4 },
-      { text: "Buy meat", done: true, id: 5 },
-    ],
+    tasks: [],
   };
+
+  componentDidMount() {
+    this.fetchTask();
+  }
+
+  fetchTask = () => {
+    fetchTasksList().then((taskList) => {
+      console.log(taskList);
+      return this.setState({
+        tasks: taskList,
+      });
+    });
+  };
+
   onCreate = (text) => {
-    const { tasks } = this.state;
     const newTask = {
-      id: Math.random(),
       text,
       done: false,
     };
-    const updatedTasks = tasks.concat(newTask);
-    this.setState({ tasks: updatedTasks });
+    createTask(newTask).then(() => this.fetchTask());
   };
+
   handleTaskStatusChange = (id) => {
-    const updatedTasks = this.state.tasks.map((task) =>
-      task.id === id ? { ...task, done: !task.done } : task
+    const { done, text } = this.state.tasks.find(
+      (task) => task.id === id
     );
-    this.setState({ tasks: updatedTasks });
+    const updatedTask = {
+      text,
+      done: !done,
+    };
+    updateTask(id, updatedTask).then(() => this.fetchTask());
   };
+
   handleTaskDelete = (id) => {
-    const updatedTasks = this.state.tasks.filter(
-      (task) => task.id !== id
-    );
-    this.setState({ tasks: updatedTasks });
+    deleteTask(id).then(() => this.fetchTask());
   };
+
   render() {
-    const sortedList = this.state.tasks
+    const sortedTask = this.state.tasks
       .slice()
       .sort((a, b) => a.done - b.done);
     return (
       <div className="todo-list">
         <CreateTaskInput onCreate={this.onCreate} />
         <ul className="list">
-          {sortedList.map((task) => (
-            <Task
-              key={task.id}
-              {...task}
-              onDelete={this.handleTaskDelete}
-              onChange={this.handleTaskStatusChange}
-            />
-          ))}
+          {sortedTask.map((task) => {
+            return (
+              <Task
+                key={task.id}
+                {...task}
+                onChange={this.handleTaskStatusChange}
+                onDelete={this.handleTaskDelete}
+              />
+            );
+          })}
         </ul>
       </div>
     );
   }
 }
 
-export default TaskList;
+export default TasksList;
