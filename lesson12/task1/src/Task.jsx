@@ -2,15 +2,14 @@ import React from "react";
 import classNames from "classnames";
 
 const Task = ({ id, done, text, onChange, onDelete }) => {
+  const listItemClass = classNames("list-item", {
+    "list-item_done": done,
+  });
   return (
-    <li
-      className={classNames("list-item", {
-        "list-item_done": done,
-      })}
-    >
+    <li className={listItemClass}>
       <input
-        type="checkbox"
         className="list-item__checkbox"
+        type="checkbox"
         defaultChecked={done}
         onChange={() => onChange(id)}
       />
@@ -22,4 +21,5 @@ const Task = ({ id, done, text, onChange, onDelete }) => {
     </li>
   );
 };
+
 export default Task;
