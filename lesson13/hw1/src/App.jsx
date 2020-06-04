@@ -1,11 +1,30 @@
 import React, { Component } from "react";
-//import { BrowserRouter, Route, Link } from "react-router-dom";
-//import Users from "./Users";
-//import Home from "./Home";
+import { Route, Link, Switch } from "react-router-dom";
+import Users from "./Users";
+import Home from "./Home";
 
 class App extends Component {
   render() {
-    return <div>Hello React!</div>;
+    return (
+      <div className="page">
+        <ul className="navigation">
+          <li className="navigation__item">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="navigation__item">
+            <Link to="/users">Users</Link>
+          </li>
+        </ul>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/users">
+            <Users />
+          </Route>
+        </Switch>
+      </div>
+    );
   }
 }
 export default App;
